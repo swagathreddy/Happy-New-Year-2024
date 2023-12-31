@@ -8,7 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #ffcccb; /* Marvellous background color */
             font-family: 'Arial', sans-serif;
             text-align: center;
             color: #333;
@@ -17,7 +17,7 @@
         .confirmation-container {
             max-width: 600px;
             margin: 50px auto;
-            background-color: #fff;
+            background-color: #ffffff; /* White container background color */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -29,6 +29,11 @@
         }
 
         .user-details {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .farewell-message {
             font-size: 1.2em;
             margin-bottom: 20px;
         }
@@ -60,6 +65,8 @@
         <p>Name: {{ name }}</p>
         <!-- Display other user details as needed -->
     </div>
+
+    <p class="farewell-message">With gratitude in my heart, I say farewell to 2023. Thank you for being a part of my journey till now. Wishing you a Happy 2024!</p>
 
     <a href="/" class="back-to-home">Back to Home</a>
 </div>
