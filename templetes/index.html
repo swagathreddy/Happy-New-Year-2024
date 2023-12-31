@@ -23,13 +23,34 @@
             margin-right: 6%;
         }
 
+        .greeting h1 {
+            white-space: pre-wrap; /* Allow word wrapping while preserving spaces */
+            display: inline;
+        }
+
+        .greeting h1 span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(1em);
+            animation: fadeIn 0.8s forwards;
+        }
+        .highlight{
+            font-size:1em;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .button-container {
             margin-top: 10px;
         }
 
         .cta-button {
             padding: 10px 20px;
-            font-size: 1em;
+            font-size: 1rem;
             background-color: #3498db; /* Change the background color as desired */
             color: white;
             text-decoration: none;
@@ -59,22 +80,52 @@
             }
         }
         @media only screen and (max-width: 600px) {
-    /* Styles for screens up to 600px wide (example) */
-    body {
-        font-size: 14px;
-    }
-}
+            /* Styles for screens up to 600px wide (example) */
+            body {
+                font-size: 14px;
+            }
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            animateWords();
+        });
+
+        function animateWords() {
+            const greetingText = document.querySelector('.greeting h1');
+            const textContent = greetingText.textContent;
+            greetingText.innerHTML = ''; // Clear the text content
+
+            // Split the sentence into words
+            const words = textContent.split(' ');
+
+            // Wrap each word in a span with a delay
+            for (let i = 0; i < words.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = words[i];
+                span.style.animationDelay = `${i * 0.3}s`; // Adjust the delay for the desired timing
+
+                greetingText.appendChild(span);
+
+                // Add a space after each word (except the last one)
+                if (i < words.length - 1) {
+                    const spaceSpan = document.createElement('span');
+                    spaceSpan.textContent = ' ';
+                    greetingText.appendChild(spaceSpan);
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 
 <div class="greeting">
     <h1>Wishing you a Very Happy New Year!</h1>
-    <p>Wishing you joy, peace, and success in the coming year.</p>
+    <p>Wishing you joy, peace, and success in the this year.</p>
 </div>
 
 <div class="button-container">
-    <a class="cta-button" href="/questions">Lets check how well you know me,Click me</a>
+    <a class="cta-button" href="/questions"><span  class="highlight">CLICK ME, </span> Lets check how well you know me</a>
 </div>
 
 <div class="footer">
