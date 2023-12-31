@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Questions</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: #333;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Answer Questions</h2>
+    <form action="{% url 'submit_answers' %}" method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="question1">How would you describe our relationship and 
+                What do you think makes our bond unique?</label>
+            <textarea id="question1" name="question1" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="question2">What is your favorite memory of us together?</label>
+            <textarea id="question2" name="question2" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="question3">Are there aspects of my life or feelings that 
+                you think I may not openly express?</label>
+            <textarea id="question3" name="question3" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="question4">What advice would you offer me when navigating tough times?</label>
+            <textarea id="question4" name="question4" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="question5">How close am I to you so that you'll share everything with me?</label>
+            <textarea id="question5" name="question5" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="question6" >Are you proud of me?</label>
+            <textarea id="question6" name="question6"  rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="question7">Are there any changes you think I could make 
+                to improve or enhance myself? </label>
+            <textarea id="question7" name="question7" rows="4" required></textarea>
+        </div>
+        <!-- Add more questions as needed -->
+        <div class="form-group">
+            <label for="question8">Any suggestions for me? </label>
+            <textarea id="question8" name="question8" rows="4" required></textarea>
+        </div>
+        <h2>Thanking for your time!...</h2>
+        <button type="submit" class="submit-button">Submit Answers</button>
+    </form>
+</div>
+
+</body>
+</html>
